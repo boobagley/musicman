@@ -45,24 +45,4 @@
       </condition>
     </template>
   </category>
-
-
-  <category>
-    <pattern>
-      do you know which album its from
-    </pattern>
-    <that>
-      Yes, I know <get name="song"/>
-    </that>
-    <template>
-      <think>
-        <set name="album">
-          <map name="songalbum">
-            <get name="song"/>
-          </map>
-        </set>
-      </think>
-      Yes, it's from <get name="album"/>
-    </template>
-  </category>
 </aiml>

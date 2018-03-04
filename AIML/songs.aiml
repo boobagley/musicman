@@ -10,16 +10,16 @@
           <star/>
         </set>
       </think>
-      Yes, I know <get name="song"/>
+      Yes, I know the song: <get name="song"/>
     </template>
   </category>
 
   <category>
     <pattern>
-      Do you know the song *^
+      Do you know the song ^
     </pattern>
     <template>
-      Hmm, not heard of <star/>, is it any good?
+      Hmm, not heard of the song: <star/>, is it any good?
     </template>
   </category>
 
@@ -28,7 +28,7 @@
       yes
     </pattern>
     <that>
-      Hmm, not heard of <star/>, is it any good?
+      Hmm, not heard of the song ^
     </that>
     <template>
       I'll be sure to give it a listen some time.
@@ -40,11 +40,49 @@
       no
     </pattern>
     <that>
-      Hmm, not heard of <star/>, is it any good?
+      Hmm, not heard of the song ^
     </that>
     <template>
       Glad I'm not missing anything good then.
     </template>
   </category>
-  
+
+  <category>
+    <pattern>
+      do you know which album its from
+    </pattern>
+    <that>
+      Yes, I know the song ^
+    </that>
+    <template>
+      <think>
+        <set name="album">
+          <map name="songalbum">
+            <get name="song"/>
+          </map>
+        </set>
+      </think>
+      Yes, it's from <get name="album"/>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      do you know who plays it
+    </pattern>
+    <that>
+      Yes, I know the song ^
+    </that>
+    <template>
+      <think>
+        <set name="band">
+          <map name="songband">
+            <get name="song"/>
+          </map>
+        </set>
+      </think>
+      Yes, <get name="band"/> played it
+    </template>
+  </category>
+
 </aiml>
