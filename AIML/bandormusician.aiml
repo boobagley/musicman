@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <category>
+    <pattern>
+      Lets talk about <set>bands</set>
+    </pattern>
+    <template>
+      <think>
+        <set name="bandormusician">band</set>
+      </think>
+      I love <set name="band">
+        <star/>
+      </set>. They're an awesome <get name="bandormusician"/>! I know some things about them, so ask away!
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      Lets talk about <set>musicians</set>
+    </pattern>
+    <template>
+      <think>
+        <set name="bandormusician">musician</set>
+        <set name="musiciangender">
+          <map name="musiciangender">
+            <star/>
+          </map>
+        </set>
+      </think>
+      <condition name="musiciangender">
+        <li value="male">
+          <think>
+            <set name="pronoun">He</set>
+            <set name="pronoun2">him</set>
+          </think>
+        </li>
+        <li value="female">
+          <think>
+            <set name="pronoun">She</set>
+            <set name="pronoun2">her</set>
+          </think>
+        </li>
+      </condition>
+      I love <set name="musician">
+        <star/>
+      </set>. <get name="pronoun"/> is an awesome <get name="bandormusician"/>! I know some things about <get name="pronoun2"/>, so ask away!
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      Lets talk about *
+    </pattern>
+    <template>
+      Don't think I've heard of them.
+    </template>
+  </category>
+
+</aiml>

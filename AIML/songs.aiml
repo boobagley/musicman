@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <category>
+    <pattern>
+      Do you know the song <set>songs</set>^
+    </pattern>
+    <template>
+      <think>
+        <set name="song">
+          <star/>
+        </set>
+      </think>
+      Yes, I know <get name="song"/>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      Do you know the song *^
+    </pattern>
+    <template>
+      Hmm, not heard of <star/>, is it any good?
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      yes
+    </pattern>
+    <that>
+      Hmm, not heard of <star/>, is it any good?
+    </that>
+    <template>
+      I'll be sure to give it a listen some time.
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      no
+    </pattern>
+    <that>
+      Hmm, not heard of <star/>, is it any good?
+    </that>
+    <template>
+      Glad I'm not missing anything good then.
+    </template>
+  </category>
+  
+</aiml>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <category>
+    <pattern>Which band is <set>musicians</set>^</pattern>
+    <template>
+        <think>
+            <set name="band"><map name="bandmembers"><star/></map></set>
+        </think>
+        <condition name="band">
+            <li value="unknown">
+                I don't believe <star/> is in band.
+            </li>
+            <li>
+                <star/> plays in <get name="band"/>
+            </li>
+        </condition>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>Which band does <set>musicians</set>^</pattern>
+    <template>
+        <think>
+            <set name="band"><map name="bandmembers"><star/></map></set>
+        </think>
+        <condition name="band">
+            <li value="unknown">
+                I don't believe <star/> is in band.
+            </li>
+            <li>
+                <star/> plays in <get name="band"/>
+            </li>
+        </condition>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>Do you know which band <set>musicians</set>^</pattern>
+    <template>
+        <think>
+            <set name="band"><map name="bandmembers"><star/></map></set>
+        </think>
+        <condition name="band">
+            <li value="unknown">
+                I don't believe <star/> is in band.
+            </li>
+            <li>
+                <star/> plays in <get name="band"/>
+            </li>
+        </condition>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>Do you know which band *^</pattern>
+    <template>
+        <think>
+            <set name="band"><map name="bandmembers"><star/></map></set>
+        </think>
+        I'm not sure I've heard of <star/>
+    </template>
+  </category>
+  
+</aiml>

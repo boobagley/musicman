@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <category>
+    <pattern>
+      Which album is <set>songs</set>^
+    </pattern>
+    <template>
+      <think>
+        <set name="album">
+          <map name="songalbum">
+            <star/>
+          </map>
+        </set>
+      </think>
+      <condition name="album">
+        <li value="unknown">
+          <star/> is a single, it's not in an album.
+        </li>
+        <li>
+          <star/> is from the album: <get name="album"/>
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      Do you know which album <set>songs</set>^
+    </pattern>
+    <template>
+      <think>
+        <set name="album">
+          <map name="songalbum">
+            <star/>
+          </map>
+        </set>
+      </think>
+      <condition name="album">
+        <li value="unknown">
+          <star/> is a single, it's not in an album.
+        </li>
+        <li>
+          <star/> is from the album: <get name="album"/>
+        </li>
+      </condition>
+    </template>
+  </category>
+
+
+  <category>
+    <pattern>
+      do you know which album its from
+    </pattern>
+    <that>
+      Yes, I know <get name="song"/>
+    </that>
+    <template>
+      <think>
+        <set name="album">
+          <map name="songalbum">
+            <get name="song"/>
+          </map>
+        </set>
+      </think>
+      Yes, it's from <get name="album"/>
+    </template>
+  </category>
+</aiml>
