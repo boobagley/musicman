@@ -45,4 +45,27 @@
       </condition>
     </template>
   </category>
+
+  <category>
+    <pattern>
+      What year was <set>albums</set>^
+    </pattern>
+    <template>
+      <think>
+        <set name="year">
+          <map name="albumyear">
+            <star/>
+          </map>
+        </set>
+      </think>
+      <condition name="year">
+        <li value="unknown">
+          I'm not sure when <star/> was released
+        </li>
+        <li>
+          <star/> was released in <get name="year"/>
+        </li>
+      </condition>
+    </template>
+  </category>
 </aiml>
