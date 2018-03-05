@@ -1,7 +1,8 @@
-<!-- coded by Kayley -->
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <aiml version="2.0">
 
+  <!-- coded by Kayley -->
+  
 <category>
     <pattern> how do </pattern>
     <template><srai>HI</srai></template>
