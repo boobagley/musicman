@@ -1,5 +1,8 @@
+<!-- coded by Sam -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+
   <category>
     <pattern>
       Which album is <set>songs</set>^
@@ -68,4 +71,16 @@
       </condition>
     </template>
   </category>
+
+  <topic name="albums">
+    <category>
+      <pattern>
+        what year was it released
+      </pattern>
+      <template>
+
+      </template>
+    </category>
+  </topic>
+  
 </aiml>

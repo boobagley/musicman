@@ -1,0 +1,82 @@
+<!-- coded by Will -->
+
+<!-- likeband -->
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+ <category>
+ <pattern> I LIKE<set>bands</set></pattern>
+ <template>Ah yes, I know them well, <star/>'s first single emerged in <map name="bandsandyearoffirstsingle"><star/></map></template>
+ </category>
+ 
+ <category>
+     <pattern> ARE <set>bands</set> A BAND</pattern>
+     <template> Yes <star/> are a band.</template>
+ </category>
+ 
+ <category>
+     <pattern> ARE * A BAND</pattern>
+     <template> Although I claim to be the fount of all knowledge on major bands, I'm afraid you have caught me out!  I've not heard of <star/></template>
+ </category>
+
+<!-- musicindustryethics -->
+
+  <category>
+  <pattern>^ ETHICS ^</pattern>
+  <template>Do you think the music industry is ethical?</template>
+  </category>
+  
+  <category>
+      <pattern>No</pattern>
+     <that>DO YOU THINK THE MUSIC INDUSTRY IS ETHICAL</that>
+     <template>
+I agree, ethics are about systematising, defending, and recommending concepts of right and wrong conduct.  </template>
+  </category>
+  
+  <category>
+      <pattern>Yes</pattern>
+     <that>DO YOU THINK THE MUSIC INDUSTRY IS ETHICAL</that>
+     <template>
+Hmm I'm not so sure.  Ethics are systematising, defending, and recommending concepts of right and wrong conduct.  With that in mind I'll let you decide.</template>
+  </category>
+</aiml>
+
+<!-- NICKNAME -->
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+ <category>
+     <pattern>* NICKNAME IS *</pattern>
+     <template>I will remember * nickname is *
+     <learn>
+         <category>
+             <pattern>WHAT IS * NICKNAME</pattern>
+             <template>
+                 * NICKNAME IS
+             </template>
+         </category>
+     </learn>
+     </template>
+     
+ </category>
+</aiml>
+
+
+<!-- BAND MEMBERS -->
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<category>
+<pattern>
+    * ARE MEMBERS OF THE*.
+</pattern>
+<template>
+    I will remember that <star/> are members
+    <learn>
+        <category>
+            <pattern>NAME THE MEMBERS OF THE BEATLES<eval> <star/> </eval>
+            </pattern>
+            <template><eval><star/> is</eval></template>
+        </category>
+    </learn>
+</template>
+</category>
+</aiml>

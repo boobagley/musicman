@@ -1,5 +1,8 @@
+<!-- coded by Sam -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+
   <category>
     <pattern>
       Do you know the song <set>songs</set>^
@@ -56,15 +59,78 @@
     </that>
     <template>
       <think>
+        <set name="topic">album</set>
         <set name="album">
           <map name="songalbum">
             <get name="song"/>
           </map>
         </set>
       </think>
-      Yes, it's from <get name="album"/>
+      Yes, it's from the album <get name="album"/>
     </template>
   </category>
+
+
+  <topic name="album">
+    <category>
+      <pattern>
+        do you know which album its from
+      </pattern>
+      <template>
+        Do you mean the song: <get name="song"/>?
+      </template>
+    </category>
+
+    <category>
+      <pattern>
+        yes
+      </pattern>
+      <that>
+        Do you mean the song ^
+      </that>
+      <template>
+        <think>
+          <set name="album">
+            <map name="songalbum">
+              <get name="song"/>
+            </map>
+          </set>
+        </think>
+        It's from the album <get name="album"/>
+      </template>
+    </category>
+
+    <category>
+      <pattern>
+        no
+      </pattern>
+      <that>
+        Do you mean the song ^
+      </that>
+      <template>
+        Which song do you mean?
+      </template>
+    </category>
+
+    <category>
+      <pattern>
+        <set>songs</set>
+      </pattern>
+      <that>
+        Which song do you mean^
+      </that>
+      <template>
+        <think>
+          <set name="album">
+            <map name="songalbum">
+              <get name="song"/>
+            </map>
+          </set>
+        </think>
+        Yes, it's from the album <get name="album"/>
+      </template>
+    </category>
+  </topic>
 
   <category>
     <pattern>
@@ -75,6 +141,7 @@
     </that>
     <template>
       <think>
+        <set name="topic">band</set>
         <set name="band">
           <map name="songband">
             <get name="song"/>
@@ -84,5 +151,126 @@
       Yes, <get name="band"/> played it
     </template>
   </category>
+
+  <category>
+    <pattern>
+      do you know who plays it
+    </pattern>
+    <template>
+      <think>
+        <set name="topic">band</set>
+      </think>
+      Do you mean the song: <get name="song"/>?
+    </template>
+  </category>
+
+  <topic name="band">
+    <category>
+      <pattern>
+        yes
+      </pattern>
+      <that>
+        Do you mean the song ^
+      </that>
+      <template>
+        <think>
+          <set name="band">
+            <map name="songband">
+              <get name="song"/>
+            </map>
+          </set>
+        </think>
+        Yes, it was played by <get name="band"/>
+      </template>
+    </category>
+
+    <category>
+      <pattern>
+        <set>songs</set>
+      </pattern>
+      <that>
+        Which song do you mean^
+      </that>
+      <template>
+        <think>
+          <set name="band">
+            <map name="songband">
+              <get name="song"/>
+            </map>
+          </set>
+        </think>
+        Yes, it was played by <get name="band"/>
+      </template>
+    </category>
+  </topic>
+
+  <category>
+    <pattern>
+      what year was it released
+    </pattern>
+    <template>
+      <think>
+        <set name="topic">year</set>
+      </think>
+      You want to know what year <get name="song"/> was released?
+    </template>
+  </category>
+
+  <topic name="year">
+    <category>
+      <pattern>
+        yes
+      </pattern>
+      <that>
+        You want to know what year ^
+      </that>
+      <template>
+        Well it's found in <set name="album">
+          <map name="songalbum">
+            <get name="song"/>
+          </map>
+        </set>.
+        And that album was released in <map name="albumyear">
+          <get name="album"/>
+        </map>.
+      </template>
+    </category>
+
+    <category>
+      <pattern>
+        no
+      </pattern>
+      <that>
+        You want to know what year ^
+      </that>
+      <template>
+        Which song do you mean?
+      </template>
+    </category>
+
+    <category>
+      <pattern>
+        <set>songs</set>
+      </pattern>
+      <that>
+        Which song do you mean?
+      </that>
+      <template>
+        <think>
+          <set name="song">
+            <star/>
+          </set>
+        </think>
+        Well it's found in <set name="album">
+          <map name="songalbum">
+            <get name="song"/>
+          </map>
+        </set>.
+        And that album was released in <map name="albumyear">
+          <get name="album"/>
+        </map>.
+      </template>
+    </category>
+  </topic>
 
 </aiml>
