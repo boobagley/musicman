@@ -61,4 +61,30 @@
     </template>
   </category>
   
+  <category>
+    <pattern>Do you know which band <set>musicians</set>^</pattern>
+    <template>
+        <think>
+            <set name="band"><map name="bandmembers"><star/></map></set>
+        </think>
+        <condition name="band">
+            <li value="unknown">
+                I don't believe <star/> is in band.
+            </li>
+            <li>
+                <star/> plays in <get name="band"/>
+            </li>
+        </condition>
+    </template>
+  </category>
+
+  <category>
+    <pattern>
+      Do you know what <set>musicians</set>^
+    </pattern>
+    <template>
+      <star/> is the <map name="musicianroles"><star/></map> from <get name="band"/>
+    </template>
+  </category>
+  
 </aiml>
