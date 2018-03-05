@@ -1,0 +1,104 @@
+<!-- coded by Kayley -->
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<category>
+    <pattern> how do </pattern>
+    <template><srai>HI</srai></template>
+</category>
+
+<category>
+    <pattern>sup</pattern>
+    <template><srai>HI</srai></template>
+</category>
+
+<category>
+    <pattern>hey</pattern>
+    <template><srai>HI</srai></template>
+</category>
+
+<category>
+    <pattern>hi</pattern>
+    <template>hello there, i am the music bot</template>
+</category>   
+
+
+<category>
+  <pattern>what is your name</pattern>
+  <template>My name is <bot name="name" />, what is yours?</template>
+</category>
+
+
+<category>
+    <pattern>my name is *</pattern>
+    <template>nice to meet you <set name="name"><star/></set>, i will remember your name</template>
+</category>
+
+<category>
+    <pattern>what is my name again</pattern>
+    <template>your name is <get name="name"/></template>
+</category>
+  
+  <category>
+      <pattern>shall i tell you something about pink floyd</pattern>
+      <template>yes ok, it will be something i dont know</template>
+  </category>
+  
+
+  
+  <category>
+    <pattern>Syd barret was a lead singer in pink floyd</pattern>
+        <template>
+            I will remember that.
+            <learn>
+  <category>
+    <pattern>who was a lead singer in pink floyd</pattern>
+        <template>Syd barret was a lead singer in pink floyd.</template>
+  </category>
+            </learn>
+        </template>
+    </category>
+    
+<category> 
+    <pattern>do you have a favourite band</pattern>
+    <template>my favourite band is <map name="favourites">band</map></template>
+</category>
+
+<category> 
+    <pattern>do you have a favourite song by that band</pattern>
+    <template>my favourite song from  <map name="favourites">band</map> is <map name="favourites">song</map></template>
+</category>
+
+<category>
+    <pattern>what is your favourite album</pattern>
+    <template>i love <map name="favourites">band</map>, it is music to my ears!<br/>what is your favourite band?</template>
+</category>
+
+
+<category>
+<pattern>my favourite band is *</pattern>
+<template>
+  I will remember that the <star /> is your favourite band. <br/>do you have a favourite song?
+  <learn>
+    <category>
+    <pattern>what is my favourite band <eval><star /></eval></pattern>
+    <template>your favourite is<eval><star /></eval> </template>
+    </category>
+  </learn>
+</template>
+</category>
+
+
+<category>
+<pattern>my favourite song is *</pattern>
+<template>
+  I will remember that the <star /> is your favourite song. <br/>
+  <learn>
+    <category>
+    <pattern>what is my favourite song <eval><star /></eval></pattern>
+    <template>your favourite is<eval><star /></eval> </template>
+    </category>
+  </learn>
+</template>
+</category>
+</aiml>
