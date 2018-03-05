@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+  <category>
+    <pattern>my favourite band is *</pattern>
+    <template>
+      I will remember that <star index="2"/> is your favourite band
+      <learn>
+        <category>
+          <pattern>
+            which is my favourite band <eval><star /></eval>
+          </pattern>
+          <template>
+            The <eval><star /></eval> is blue
+          </template>
+        </category>
+      </learn>
+    </template>
+  </category>
+
+  <category>
+    <pattern>THE * IS BLUE</pattern>
+    <template>
+      I will remember that the <star /> is blue.
+      <learn>
+        <category>
+          <pattern>
+            WHAT COLOR IS THE <eval><star /></eval>
+          </pattern>
+          <template>
+            The <eval><star /></eval> is blue
+          </template>
+        </category>
+      </learn>
+    </template>
+  </category>
+
+  <category>
+    <pattern>I LIKE COFFEE</pattern>
+    <template>
+      I will remember that you like coffee.
+      <learn>
+        <category>
+          <pattern>WHAT DO I LIKE</pattern>
+          <template>You like coffee.</template>
+        </category>
+      </learn>
+    </template>
+  </category>
+
+</aiml>

@@ -52,12 +52,12 @@
   </category>
   
   <category>
-    <pattern>Do you know which band *^</pattern>
+    <pattern>Do you know which band *</pattern>
     <template>
         <think>
             <set name="band"><map name="bandmembers"><star/></map></set>
         </think>
-        I'm not sure I've heard of <star/>
+        I'm not sure I've heard of <first><star/></first>
     </template>
   </category>
   
