@@ -3,27 +3,35 @@
 
   <!-- coded by Sam -->
 
-  <category>
-    <pattern>my favourite band is *</pattern>
-    <template>
-      I will remember that <set name="favband">
-        <star/>
-      </set> is your favourite band.
-    </template>
-  </category>
+<category>
+<pattern>* are a rock band</pattern>
+<template>
+  I will remember that <star /> is a rock band.
+  <learn>
+    <category>
+    <pattern>what genre is <eval><star /></eval></pattern>
+    <template><eval><star /></eval> is a rock band</template>
+    </category>
+  </learn>
+</template>
+</category>
 
-  <category>
+<category>
     <pattern>
-      which is my favourite band
+        do you like rock?
     </pattern>
     <template>
-      <condition name="favband">
-        <li name="unknown">You haven't told me yet</li>
-        <li>
-          <get name="favband"/> is your favourite band
-        </li>
-      </condition>
+        I love rock
     </template>
-  </category>
+</category>
+
+<category>
+    <pattern>
+        What's your favourite music genre
+    </pattern>
+    <template>
+        <srai>do you like rock?</srai>
+    </template>
+</category>
 
 </aiml>
